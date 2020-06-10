@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leet Code Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tab-styles.css">
+    <link rel="stylesheet" href="navbar.css">
+
+    <script src="code.js"></script>
+    <script src="testCase.js"></script>
+    <script src="solution.js"></script>
+
+    <script src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="codemirror/theme/nord.css">
+    <script src="codemirror/addon/selection/active-line.js"></script>
+    <script src="codemirror/addon/edit/closebrackets.js"></script>
+    <script src="codemirror/keymap/sublime.js"></script>
+    <script src="codemirror/addon/comment/comment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js" integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
+    <!-- <script src="codemirror/addon/edit/matchbrackets.js"></script>
+    
+    <script src="codemirror/addon/fold/foldgutter.js"></script>
+    <script src="codemirror/addon/fold/foldcode.js"></script>
+
+    <link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css"> -->
+
+    </head>
+<body>
+    <div class="navbar">
+        <div class="left-navigation">
+            <div class="row"><div class="brand">LeetCodeClone</div></div>
+            <div class="row"><a href="/problems.html"><div class="row">Problems</div></a></div>
+            <div class="row"><a href="/about.html"><div class="row">About</div></a>
+        </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+
+            <div class="tab">
+                <button class="tablinks active" id="tablinks-Description">Description</button>
+                <button class="tablinks" id="tablinks-Solution">Solution</button>
+                <button class="tablinks" id="tablinks-Submissions">Submissions</button>
+            </div>
+
+            <div class="tabcontent-container">
+                <div id="Description" class="tabcontent" style="display: block;">
+                    <h2>1. Two Sum</h2>
+                    <p class="easy-color">Easy</p>
+                    <div class="horizontal-line"></div>
+                    <p>
+                        Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+                    </p>
+                    <p>
+                        You may assume that each input would have exactly one solution, and you may not use the same element twice.
+                    </p>
+                    <h4>Example:</h4>
+                    <p>
+                        Given nums = [2, 7, 11, 15], target = 9,
+                    </p>
+                    <p>
+                        Because nums[0] + nums[1] = 2 + 7 = 9,
+                    </p>
+                    <p>
+                        return [0, 1].
+                    </p>
+                </div>
+                <div id="Solution" class="tabcontent">
+                    <h3>Hash Table O(N)</h3>
+                    <p>Use a hash table to store the indexes of the elements in the array</p>
+                    <p>The question asks for the indexes of the two values that sum up to target.</p>
+                    <p>val1 + val2 = target</p>
+                    <p>val2 = target - val1</p>
+                    <p>Thus, for a given value, we can lookup the desired val2 in the hash table.</p>
+                    <p>If it exists, then we return the two values indexes.</p>
+                </div>
+                <div id="Submissions" class="tabcontent">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="tab">
+                <button class="tablinks active" id="tablinks-Editor">Editor</button>
+                <button class="tablinks" id="tablinks-TestCases">Test Cases</button>
+            </div>
+            <div class="tabcontent-container">
+                    <div id="Editor" class="tabcontent" style="display: block;">
+                        
+                    </div>
+                <div class="tabcontent" id="TestCases">
+                </div>
+            </div>
+            <div class="right-bottom-controls">
+                <button id="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let codeDefualt = `var twoSum = function(nums, target) {
+    
+        };`;
+
+        let solutionDefualt = `var twoSum = function(nums, target) {
+            let dictionary = {};
+            
+            for(let i = 0; i < nums.length; i++) {
+                if (target - nums[i] in dictionary) 
+                return [dictionary[target - nums[i]], i];
+                else
+                dictionary[nums[i]] = i;
+            }
+
+            return [-1,-1];
+        };`;
+
+        let testCaseDefualt = `//checkArrayEqual(A,B)
+        //returns true if every element of A === B
+        //returns false otherwise
+
+
+        let test_1 = () => {
+        let nums = [2,7,11,15];
+        let target = 9;
+        
+        let correct_output_array = [0,1];
+        
+        let user_output = twoSum(nums, target);
+        
+        if (!checkArrayEqual(user_output, correct_output_array)) {
+            throw new Error("Test Case 1 Failed");
+        } else {
+            console.log("Test 1 Passed!");
+        }  
+        }
+        test_1();
+
+
+
+
+        function checkArrayEqual(A, B) {
+        if (A.length != B.length) return false;
+        
+        for(let i = 0; i < A.length; i++) {
+            if (A[i] !== B[i]) return false;
+        }
+        
+        return true;
+        }`;
+
+    </script>
+    <script src="script.js"></script>
+    <script src="run.js"></script>
+    <script src="tab-script.js"></script>
+    <script src="save.js"></script>
+
+</body>
+</html>
