@@ -1,5 +1,6 @@
 function run(code, testcase, timeout = 0) {
-    let myWorker = new Worker("problems/common/scripts/worker.js");
+    workerpath = document.URL == "https://jgirelma.github.io/leetCodeClone/" ? "problems/common/scripts/worker.js" : "../common/scripts/worker.js";
+    let myWorker = new Worker(workerpath);
 
     let timer = undefined;
     
