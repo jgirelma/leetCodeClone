@@ -1,5 +1,5 @@
 function run(code, testcase, timeout = 0) {
-    let myWorker = new Worker("worker.js");
+    let myWorker = new Worker("problems/common/scripts/worker.js");
 
     let timer = undefined;
     
